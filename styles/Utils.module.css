@@ -1,0 +1,14 @@
+.navbar {
+  cursor: pointer;
+}
+
+.background {
+  background: rgb(61, 145, 213);
+  background: linear-gradient(
+    180deg,
+    rgba(61, 145, 213, 1) 0%,
+    rgba(205, 227, 255, 1) 100%
+  );
+  width: 100%;
+  height: 100vh;
+}
