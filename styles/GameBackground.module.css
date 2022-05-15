@@ -1,0 +1,58 @@
+.grass {
+  width: 1000vw;
+  animation-name: grassMovement;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.forest {
+  width: 1000vw;
+  animation-name: forestMovement;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.forest2 {
+  width: 1000vw;
+  animation-name: forestMovement;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.mountain {
+  width: 1000vw;
+  animation-name: mountainMovement;
+  animation-duration: 100s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes grassMovement {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-126px);
+  }
+}
+
+@keyframes forestMovement {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-614px);
+  }
+}
+
+@keyframes mountainMovement {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-1000px);
+  }
+}
