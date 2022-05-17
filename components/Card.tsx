@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import style from "../styles/Utils.module.css";
 
@@ -18,12 +19,16 @@ interface GameData {
 }
 
 const Card: React.FC<GameData> = (props: GameData) => {
+  const router = useRouter();
   return (
     <>
       <Head>
         <title>GameGrat | Games List</title>
       </Head>
-      <div className={style.card + " border rounded-lg group cursor-pointer"}>
+      <div
+        className={style.card + " border rounded-lg group cursor-pointer"}
+        onClick={() => router.push(`/browse/${props.id}`)}
+      >
         <div className="relative max-w-[350px] aspect-[365/206] rounded-t-lg overflow-hidden">
           <Image
             src={props.thumbnail}
