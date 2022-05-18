@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import NavbarWhite from "../../components/NavbarWhite";
 import styles from "../../styles/Utils.module.css";
 
 interface GameDetailsProps {
@@ -40,10 +41,10 @@ const GameDetails = (props: { game: GameDetailsProps }) => {
   return (
     <>
       <Head>
-        <title>{game.title}</title>
+        <title>Game Gratis: {game.title}</title>
       </Head>
-      <section>
-        <Navbar />
+      <section className="relative">
+        <NavbarWhite />
         <section className={styles.skygradient + " min-h-screen relative"}>
           {/* Background */}
           <div className="w-full h-full absolute">
@@ -51,7 +52,7 @@ const GameDetails = (props: { game: GameDetailsProps }) => {
               <>
                 {game.screenshots.length !== 0 ? (
                   <Image
-                    src={game.screenshots[0]?.image}
+                    src={game.screenshots[1]?.image}
                     alt={game.title}
                     layout="fill"
                     objectFit="cover"
@@ -68,7 +69,7 @@ const GameDetails = (props: { game: GameDetailsProps }) => {
           {/* End Background */}
 
           {/* Main Content */}
-          <main className="relative py-[120px] px-32">
+          <main className="relative py-24 px-32">
             <header className="md:flex gap-10">
               <aside className="md:w-[30%] lg:min-w-[300px] h-full">
                 <div className="relative w-full h-full aspect-video border-4 border-white shadow-lg">
@@ -204,20 +205,18 @@ const GameDetails = (props: { game: GameDetailsProps }) => {
                           <h1 className="text-xl my-4">Screenshots :</h1>
                           <div className="flex flex-col gap-5">
                             {game.screenshots.map((ss) => (
-                              <>
-                                <div
-                                  key={ss.id}
-                                  className="relative aspect-video border-white border-8 shadow-lg"
-                                >
-                                  <Image
-                                    src={ss.image}
-                                    alt={game.title}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    quality={90}
-                                  ></Image>
-                                </div>
-                              </>
+                              <div
+                                key={ss.id}
+                                className="relative aspect-video border-white border-8 shadow-lg"
+                              >
+                                <Image
+                                  src={ss.image}
+                                  alt={game.title}
+                                  layout="fill"
+                                  objectFit="cover"
+                                  quality={90}
+                                ></Image>
+                              </div>
                             ))}
                           </div>
                         </>
@@ -231,6 +230,7 @@ const GameDetails = (props: { game: GameDetailsProps }) => {
             </header>
           </main>
         </section>
+        <Footer />
       </section>
     </>
   );

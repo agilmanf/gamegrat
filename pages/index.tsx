@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>GameGrat | Free Games Portal</title>
+        <title>Game Gratis | Free Games Portal</title>
         <meta name="description" content="provide free games info" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

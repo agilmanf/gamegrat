@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
@@ -22,9 +21,6 @@ const Card: React.FC<GameData> = (props: GameData) => {
   const router = useRouter();
   return (
     <>
-      <Head>
-        <title>GameGrat | Games List</title>
-      </Head>
       <div
         className={style.card + " border rounded-lg group cursor-pointer"}
         onClick={() => router.push(`/browse/${props.id}`)}
