@@ -17,6 +17,7 @@ const GameBackground = () => {
         ></div>
         <div className={styles.forest + " bg-[url(/forest1.png)] h-40 "}></div>
         <div className={styles.grass + " bg-[url(/grass.png)] h-16 "}></div>
+        {/* <div className={styles.sprite}></div> */}
       </section>
     </section>
   );

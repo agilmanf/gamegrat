@@ -30,6 +30,29 @@
   animation-timing-function: linear;
 }
 
+.sprite {
+  width: 160px;
+  height: 200px;
+  background: url("/sprite.png");
+  background-size: cover;
+  animation-name: running;
+  animation-iteration-count: infinite;
+  animation-duration: 700ms;
+  animation-timing-function: steps(10);
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+
+@keyframes running {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -1600px;
+  }
+}
+
 @keyframes grassMovement {
   from {
     transform: translateX(0);

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import Footer from "../../components/Footer";
 import NavbarWhite from "../../components/NavbarWhite";
 import styles from "../../styles/Utils.module.css";
@@ -69,165 +68,161 @@ const GameDetails = (props: { game: GameDetailsProps }) => {
           {/* End Background */}
 
           {/* Main Content */}
-          <main className="relative py-24 px-32">
-            <header className="md:flex gap-10">
-              <aside className="md:w-[30%] lg:min-w-[300px] h-full">
-                <div className="relative w-full h-full aspect-video border-4 border-white shadow-lg">
-                  <Image
-                    src={game.thumbnail}
-                    alt={game.title}
-                    layout="fill"
-                    objectFit="cover"
-                    quality={90}
-                  ></Image>
-                </div>
-                <a
-                  href={game.game_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={
-                    styles.button +
-                    " block text-center font-bold text-[#bd7d07] text-lg my-5 py-3 w-full bg-gradient-to-b from-yellow-200 to-yellow-400 rounded-sm"
-                  }
-                >
-                  Play Now
-                </a>
-                {game.minimum_system_requirements ? (
-                  <section>
-                    <h1 className="text-lg text-slate-800 font-roboto">
-                      Minimum Requirenments
-                    </h1>
-                    <hr className="my-1 border-slate-600" />
-                    <ul className="text-sm font-roboto mt-3">
-                      <li className="my-1">
-                        <div className="text-slate-800 font-bold">
-                          Processor
-                        </div>
-                        <div className="text-slate-200">
-                          {game.minimum_system_requirements.processor}
-                        </div>
-                      </li>
-                      <li className="my-1">
-                        <div className="text-slate-800 font-bold">Graphics</div>
-                        <div className="text-slate-200">
-                          {game.minimum_system_requirements.graphics}
-                        </div>
-                      </li>
-                      <li className="my-1">
-                        <div className="text-slate-800 font-bold">Memory</div>
-                        <div className="text-slate-200">
-                          {game.minimum_system_requirements.memory}
-                        </div>
-                      </li>
-                      <li className="my-1">
-                        <div className="text-slate-800 font-bold">Storage</div>
-                        <div className="text-slate-200">
-                          {game.minimum_system_requirements.storage}
-                        </div>
-                      </li>
-                      <li className="my-1">
-                        <div className="text-slate-800 font-bold">
-                          {" "}
-                          Operating System
-                        </div>
-                        <div className="text-slate-200">
-                          {game.minimum_system_requirements.os}
-                        </div>
-                      </li>
-                    </ul>
-                  </section>
-                ) : (
-                  ""
-                )}
-              </aside>
-              <article className="lg:w-[70%]">
-                <h1 className="title">{game.title}</h1>
-                <div className="my-5 px-1 grid grid-cols-3 gap-x-10 gap-y-3">
-                  <div>
-                    <h4 className="font-roboto text-slate-800 font-bold">
-                      Developer
-                    </h4>
-                    <h5 className="font-roboto text-slate-200 text-sm">
-                      {game.developer}
-                    </h5>
-                  </div>
-                  <div>
-                    <h4 className="font-roboto text-slate-800 font-bold">
-                      Publisher
-                    </h4>
-                    <h5 className="font-roboto text-slate-200 text-sm">
-                      {game.publisher}
-                    </h5>
-                  </div>
-                  <div>
-                    <h4 className="font-roboto text-slate-800 font-bold">
-                      Release Date
-                    </h4>
-                    <h5 className="font-roboto text-slate-200 text-sm">
-                      {game.release_date}
-                    </h5>
-                  </div>
-                  <div>
-                    <h4 className="font-roboto text-slate-800 font-bold">
-                      Genre
-                    </h4>
-                    <h5 className="font-roboto text-slate-200 text-sm">
-                      {game.genre}
-                    </h5>
-                  </div>
-                  <div>
-                    <h4 className="font-roboto text-slate-800 font-bold">
-                      Platform
-                    </h4>
-                    <h5 className="font-roboto text-slate-200 text-sm">
-                      {game.platform}
-                    </h5>
-                  </div>
-                  <div>
-                    <h4 className="font-roboto text-slate-800 font-bold">
-                      Status
-                    </h4>
-                    <h5 className="font-roboto text-slate-200 text-sm">
-                      {game.status}
-                    </h5>
-                  </div>
-                </div>
-
-                <section className="mt-6">
-                  <article className="col-span-2">
-                    <h1 className="text-2xl">About The Game</h1>
-                    <p className="my-2 text-sm text-justify">
-                      {game.description}
-                    </p>
-                    <>
-                      {game.screenshots.length !== 0 ? (
-                        <>
-                          <h1 className="text-xl my-4">Screenshots :</h1>
-                          <div className="flex flex-col gap-5">
-                            {game.screenshots.map((ss) => (
-                              <div
-                                key={ss.id}
-                                className="relative aspect-video border-white border-8 shadow-lg"
-                              >
-                                <Image
-                                  src={ss.image}
-                                  alt={game.title}
-                                  layout="fill"
-                                  objectFit="cover"
-                                  quality={90}
-                                ></Image>
-                              </div>
-                            ))}
-                          </div>
-                        </>
-                      ) : (
-                        ""
-                      )}
-                    </>
-                  </article>
+          <main className="relative py-24 px-4 lg:w-[1100px] 2xl:pt-32 2xl:w-[1500px] m-auto md:flex gap-10 2xl:gap-16">
+            <aside className="md:w-[40%] lg:min-w-[300px] lg:max-w-[350px] h-full">
+              <div className="relative w-full h-full aspect-video border-4 border-white shadow-lg">
+                <Image
+                  src={game.thumbnail}
+                  alt={game.title}
+                  layout="fill"
+                  objectFit="cover"
+                  quality={90}
+                ></Image>
+              </div>
+              <a
+                href={game.game_url}
+                target="_blank"
+                rel="noreferrer"
+                className={
+                  styles.button +
+                  " text-center font-bold text-[#bd7d07] text-lg my-5 py-3 w-full bg-gradient-to-b from-yellow-200 to-yellow-400 rounded-sm block"
+                }
+              >
+                Play Now
+              </a>
+              {game.minimum_system_requirements ? (
+                <section className="hidden md:block">
+                  <h1 className="text-lg text-slate-800 font-roboto">
+                    Minimum Requirenments
+                  </h1>
+                  <hr className="my-1 border-slate-600" />
+                  <ul className="text-sm font-roboto mt-3">
+                    <li className="my-1">
+                      <div className="text-slate-800 font-bold">Processor</div>
+                      <div className="text-slate-200">
+                        {game.minimum_system_requirements.processor}
+                      </div>
+                    </li>
+                    <li className="my-1">
+                      <div className="text-slate-800 font-bold">Graphics</div>
+                      <div className="text-slate-200">
+                        {game.minimum_system_requirements.graphics}
+                      </div>
+                    </li>
+                    <li className="my-1">
+                      <div className="text-slate-800 font-bold">Memory</div>
+                      <div className="text-slate-200">
+                        {game.minimum_system_requirements.memory}
+                      </div>
+                    </li>
+                    <li className="my-1">
+                      <div className="text-slate-800 font-bold">Storage</div>
+                      <div className="text-slate-200">
+                        {game.minimum_system_requirements.storage}
+                      </div>
+                    </li>
+                    <li className="my-1">
+                      <div className="text-slate-800 font-bold">
+                        {" "}
+                        Operating System
+                      </div>
+                      <div className="text-slate-200">
+                        {game.minimum_system_requirements.os}
+                      </div>
+                    </li>
+                  </ul>
                 </section>
-              </article>
-            </header>
+              ) : (
+                ""
+              )}
+            </aside>
+            <article className="md:w-[50%] lg:w-[70%] mt-5 md:mt-0 relative">
+              <h1 className="title">{game.title}</h1>
+              <div className="my-5 px-1 grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-3">
+                <div>
+                  <h4 className="font-roboto text-slate-800 font-bold">
+                    Developer
+                  </h4>
+                  <h5 className="font-roboto text-slate-200 text-sm">
+                    {game.developer}
+                  </h5>
+                </div>
+                <div>
+                  <h4 className="font-roboto text-slate-800 font-bold">
+                    Publisher
+                  </h4>
+                  <h5 className="font-roboto text-slate-200 text-sm">
+                    {game.publisher}
+                  </h5>
+                </div>
+                <div>
+                  <h4 className="font-roboto text-slate-800 font-bold">
+                    Release Date
+                  </h4>
+                  <h5 className="font-roboto text-slate-200 text-sm">
+                    {game.release_date}
+                  </h5>
+                </div>
+                <div>
+                  <h4 className="font-roboto text-slate-800 font-bold">
+                    Genre
+                  </h4>
+                  <h5 className="font-roboto text-slate-200 text-sm">
+                    {game.genre}
+                  </h5>
+                </div>
+                <div>
+                  <h4 className="font-roboto text-slate-800 font-bold">
+                    Platform
+                  </h4>
+                  <h5 className="font-roboto text-slate-200 text-sm">
+                    {game.platform}
+                  </h5>
+                </div>
+                <div>
+                  <h4 className="font-roboto text-slate-800 font-bold">
+                    Status
+                  </h4>
+                  <h5 className="font-roboto text-slate-200 text-sm">
+                    {game.status}
+                  </h5>
+                </div>
+              </div>
+
+              <section className="mt-6">
+                <article className="col-span-2">
+                  <h1 className="text-2xl">About The Game</h1>
+                  <p className="my-2 text-sm text-justify">
+                    {game.description}
+                  </p>
+                  <>
+                    {game.screenshots.length !== 0 ? (
+                      <>
+                        <h1 className="text-xl my-4">Screenshots :</h1>
+                        <div className="flex flex-col gap-5">
+                          {game.screenshots.map((ss) => (
+                            <div
+                              key={ss.id}
+                              className="relative aspect-video border-white border-8 shadow-lg"
+                            >
+                              <Image
+                                src={ss.image}
+                                alt={game.title}
+                                layout="fill"
+                                objectFit="cover"
+                                quality={90}
+                              ></Image>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </>
+                </article>
+              </section>
+            </article>
           </main>
         </section>
         <Footer />

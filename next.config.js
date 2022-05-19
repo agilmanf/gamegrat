@@ -4,6 +4,10 @@ const nextConfig = {
   images: {
     domains: ["www.freetogame.com"],
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 };
 
 module.exports = nextConfig;

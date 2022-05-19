@@ -38,19 +38,19 @@ const browse = (props: GamesProps) => {
       <div className="min-h-[160vh] pb-[64px] relative">
         <section
           id="hero"
-          className="h-96 flex bg-no-repeat bg-center bg-cover"
+          className="h-96 flex bg-no-repeat bg-left lg:bg-cover"
           style={{ backgroundImage: "url('/banner.jpg')" }}
         ></section>
-        <main className="xl:w-[1170px] 2xl:w-[1500px] xl:mx-auto mx-10 my-10">
+        <main className="xl:w-[1170px] 2xl:w-[1500px] xl:mx-auto mx-4 md:mx-10 my-10">
           <SearchBar setGames={setGames} setLoading={setLoading} />
           <hr className="my-5" />
           <div
             id="card-container"
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-7"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-6 gap-3 md:gap-7"
           >
             {loading
               ? "loading"
-              : games.length !== undefined
+              : games.length !== 0
               ? games.map((game) => <Card {...game} key={game.id} />)
               : "Not Found"}
           </div>
@@ -62,9 +62,7 @@ const browse = (props: GamesProps) => {
 };
 
 export async function getStaticProps() {
-  const games = await fetch(
-    "https://www.freetogame.com/api/games?sort-by=release-date"
-  )
+  const games = await fetch("https://data-gado.herokuapp.com/gamegratis")
     .then((res) => res.json())
     .catch((err) => console.log(err));
 
